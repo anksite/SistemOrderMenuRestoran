@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SistemOrderMenuRestoran.Model.Entity
+{
+    class Order
+    {
+        public string nama { get; set; }
+        public int harga { get; set; }
+        public int qty { get; set; }
+    }
+}
