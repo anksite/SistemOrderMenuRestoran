@@ -10,6 +10,7 @@ namespace SistemOrderMenuRestoran.Model.Entity
     {
         public string id { get; set; }
         public string nama { get; set; }
+        public string jenis { get; set; }
         public int harga { get; set; }
     }
 }

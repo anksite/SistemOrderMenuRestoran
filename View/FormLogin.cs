@@ -11,11 +11,21 @@ using System.Windows.Forms;
 namespace SistemOrderMenuRestoran.View
 {
     //ADNAN
-    public partial class FormLogin : Form
+    public partial class FormLogin : MetroFramework.Forms.MetroForm
     {
         public FormLogin()
         {
             InitializeComponent();
+        }
+
+        private void b_menu_Click(object sender, EventArgs e)
+        {
+            new FormMenu().Show();
+        }
+
+        private void l_record_Click(object sender, EventArgs e)
+        {
+            new FormLoginRecord().ShowDialog();
         }
     }
 }
