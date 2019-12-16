@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemOrderMenuRestoran.Model.Entity
 {
-    class Order
+    public class Order
     {
+        public string idMenu { get; set; }
         public string nama { get; set; }
         public int harga { get; set; }
         public int qty { get; set; }

@@ -64,7 +64,7 @@
             this.l_itemCount.Name = "l_itemCount";
             this.l_itemCount.Size = new System.Drawing.Size(127, 19);
             this.l_itemCount.TabIndex = 5;
-            this.l_itemCount.Text = "3 Item Ditambahkan";
+            this.l_itemCount.Text = "0 Item Ditambahkan";
             // 
             // l_total
             // 
@@ -74,9 +74,9 @@
             this.l_total.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.l_total.Location = new System.Drawing.Point(23, 493);
             this.l_total.Name = "l_total";
-            this.l_total.Size = new System.Drawing.Size(142, 25);
+            this.l_total.Size = new System.Drawing.Size(97, 25);
             this.l_total.TabIndex = 5;
-            this.l_total.Text = "Total: Rp54.000";
+            this.l_total.Text = "Total: Rp0";
             // 
             // metroLabel3
             // 
@@ -191,6 +191,7 @@
             this.b_next.TabIndex = 7;
             this.b_next.Text = "BERIKUTNYA";
             this.b_next.UseSelectable = true;
+            this.b_next.Click += new System.EventHandler(this.b_next_Click);
             // 
             // FormMenu
             // 

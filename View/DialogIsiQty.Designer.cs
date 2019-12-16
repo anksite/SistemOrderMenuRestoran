@@ -37,7 +37,7 @@
             this.l_menu.AutoSize = true;
             this.l_menu.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.l_menu.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.l_menu.Location = new System.Drawing.Point(31, 69);
+            this.l_menu.Location = new System.Drawing.Point(30, 69);
             this.l_menu.MinimumSize = new System.Drawing.Size(350, 0);
             this.l_menu.Name = "l_menu";
             this.l_menu.Size = new System.Drawing.Size(350, 25);
@@ -106,6 +106,7 @@
             this.b_ok.TabIndex = 1;
             this.b_ok.Text = "Oke";
             this.b_ok.UseSelectable = true;
+            this.b_ok.Click += new System.EventHandler(this.b_ok_Click);
             // 
             // DialogIsiQty
             // 

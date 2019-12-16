@@ -55,8 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\TransaksiItemController.cs" />
+    <Compile Include="Controller\TransaksiController.cs" />
+    <Compile Include="Controller\LoginRecordController.cs" />
+    <Compile Include="Controller\KaryawanController.cs" />
     <Compile Include="Controller\MenuController.cs" />
     <Compile Include="Model\Context\DbContext.cs" />
+    <Compile Include="Model\Entity\TransaksiItem.cs" />
+    <Compile Include="Model\Repository\TransaksiItemRepository.cs" />
+    <Compile Include="Model\Repository\TransaksiRepository.cs" />
+    <Compile Include="Model\Repository\LoginRecordRepository.cs" />
+    <Compile Include="Model\Repository\KaryawanRepository.cs" />
     <Compile Include="Model\Repository\MenuRepository.cs" />
     <Compile Include="View\DialogIsiQty.cs">
       <SubType>Form</SubType>

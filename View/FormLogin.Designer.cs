@@ -134,6 +134,7 @@
             this.b_login.TabIndex = 2;
             this.b_login.Text = "LOGIN";
             this.b_login.UseSelectable = true;
+            this.b_login.Click += new System.EventHandler(this.b_login_Click);
             // 
             // l_record
             // 
@@ -167,7 +168,7 @@
             this.User.Controls.Add(this.metroTabPage2);
             this.User.Location = new System.Drawing.Point(23, 64);
             this.User.Name = "User";
-            this.User.SelectedIndex = 0;
+            this.User.SelectedIndex = 1;
             this.User.Size = new System.Drawing.Size(407, 219);
             this.User.TabIndex = 0;
             this.User.UseSelectable = true;

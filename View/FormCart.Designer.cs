@@ -28,49 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.b_lanjut = new System.Windows.Forms.Button();
-            this.l_total = new System.Windows.Forms.Label();
+            this.b_order = new MetroFramework.Controls.MetroButton();
+            this.l_total = new MetroFramework.Controls.MetroLabel();
+            this.lv_order = new MetroFramework.Controls.MetroListView();
+            this.tb_note = new System.Windows.Forms.TextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
-            // listView1
+            // b_order
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(445, 360);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // b_lanjut
-            // 
-            this.b_lanjut.Location = new System.Drawing.Point(276, 378);
-            this.b_lanjut.Name = "b_lanjut";
-            this.b_lanjut.Size = new System.Drawing.Size(181, 40);
-            this.b_lanjut.TabIndex = 4;
-            this.b_lanjut.Text = "BAYAR";
-            this.b_lanjut.UseVisualStyleBackColor = true;
+            this.b_order.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.b_order.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.b_order.Location = new System.Drawing.Point(290, 436);
+            this.b_order.Name = "b_order";
+            this.b_order.Size = new System.Drawing.Size(152, 43);
+            this.b_order.TabIndex = 10;
+            this.b_order.Text = "ORDER";
+            this.b_order.UseSelectable = true;
+            this.b_order.Click += new System.EventHandler(this.b_order_Click);
             // 
             // l_total
             // 
+            this.l_total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.l_total.AutoSize = true;
-            this.l_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_total.Location = new System.Drawing.Point(12, 386);
+            this.l_total.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.l_total.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.l_total.Location = new System.Drawing.Point(23, 446);
             this.l_total.Name = "l_total";
-            this.l_total.Size = new System.Drawing.Size(165, 25);
-            this.l_total.TabIndex = 3;
+            this.l_total.Size = new System.Drawing.Size(142, 25);
+            this.l_total.TabIndex = 9;
             this.l_total.Text = "Total: Rp54.000";
+            // 
+            // lv_order
+            // 
+            this.lv_order.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lv_order.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lv_order.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lv_order.FullRowSelect = true;
+            this.lv_order.Location = new System.Drawing.Point(23, 63);
+            this.lv_order.Name = "lv_order";
+            this.lv_order.OwnerDraw = true;
+            this.lv_order.Size = new System.Drawing.Size(419, 253);
+            this.lv_order.TabIndex = 8;
+            this.lv_order.UseCompatibleStateImageBehavior = false;
+            this.lv_order.UseSelectable = true;
+            // 
+            // tb_note
+            // 
+            this.tb_note.Location = new System.Drawing.Point(23, 355);
+            this.tb_note.Multiline = true;
+            this.tb_note.Name = "tb_note";
+            this.tb_note.Size = new System.Drawing.Size(419, 61);
+            this.tb_note.TabIndex = 11;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(23, 327);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(106, 25);
+            this.metroLabel1.TabIndex = 9;
+            this.metroLabel1.Text = "Beri Catatan";
             // 
             // FormCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 431);
-            this.Controls.Add(this.b_lanjut);
+            this.ClientSize = new System.Drawing.Size(465, 502);
+            this.Controls.Add(this.tb_note);
+            this.Controls.Add(this.b_order);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.l_total);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lv_order);
             this.Name = "FormCart";
-            this.Text = "FormCart";
+            this.Text = "Periksa Pesanan Anda";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,8 +112,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button b_lanjut;
-        private System.Windows.Forms.Label l_total;
+        private MetroFramework.Controls.MetroButton b_order;
+        private MetroFramework.Controls.MetroLabel l_total;
+        private MetroFramework.Controls.MetroListView lv_order;
+        private System.Windows.Forms.TextBox tb_note;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }

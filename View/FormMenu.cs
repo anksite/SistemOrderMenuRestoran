@@ -21,6 +21,7 @@ namespace SistemOrderMenuRestoran {
         List<Menu> listMakan = new List<Menu>();
         List<Menu> listMinum = new List<Menu>();
         List<Menu> listLain  = new List<Menu>();
+        List<Order> listOrder  = new List<Order>();
 
         public FormMenu() {
             InitializeComponent();
@@ -81,9 +82,33 @@ namespace SistemOrderMenuRestoran {
         }
 
         private void lv_makan_Click(object sender, EventArgs e) {
+            string id = listMakan[lv_makan.SelectedIndices[0]].id;
             string nama = listMakan[lv_makan.SelectedIndices[0]].nama;
             int harga = listMakan[lv_makan.SelectedIndices[0]].harga;
-            new DialogIsiQty(nama, harga).ShowDialog();
+            DialogIsiQty dialog = new DialogIsiQty(id, nama, harga);
+            dialog.OnOke += OnOke;
+            dialog.ShowDialog();
+        }
+
+        void OnOke(Order order) {
+            listOrder.Add(order);
+            CountOrder();
+        }
+
+        void CountOrder() {
+            int item = 0;
+            int total = 0;
+            foreach (var order in listOrder) {
+                int subTotal = order.harga * order.qty;
+                item += order.qty;
+                total += subTotal;
+            }
+            l_itemCount.Text = "" + item + " Item Ditambahkan";
+            l_total.Text = "Total: Rp"+total.ToString("#,##0");
+        }
+
+        private void b_next_Click(object sender, EventArgs e) {
+            new FormCart(listOrder).ShowDialog();
         }
     }
 }
