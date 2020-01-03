@@ -32,6 +32,10 @@ namespace SistemOrderMenuRestoran {
             listMinum = controller.ReadMinum();
             listLain  = controller.ReadLain();
 
+            LoadAllList();
+        }
+
+        void LoadAllList() { 
             LoadData(listMakan, lv_makan);
             LoadData(listMinum, lv_minum);
             LoadData(listLain, lv_lain);
@@ -82,9 +86,21 @@ namespace SistemOrderMenuRestoran {
         }
 
         private void lv_makan_Click(object sender, EventArgs e) {
-            string id = listMakan[lv_makan.SelectedIndices[0]].id;
-            string nama = listMakan[lv_makan.SelectedIndices[0]].nama;
-            int harga = listMakan[lv_makan.SelectedIndices[0]].harga;
+            dialogIsiQty(listMakan, lv_makan);
+        }
+
+        private void lv_minum_Click(object sender, EventArgs e) {
+            dialogIsiQty(listMinum, lv_minum);
+        }
+
+        private void lv_lain_Click(object sender, EventArgs e) {
+            dialogIsiQty(listLain, lv_lain);
+        }
+
+        void dialogIsiQty(List<Menu> menu, ListView lv) { 
+            string id   = menu[lv.SelectedIndices[0]].id;
+            string nama = menu[lv.SelectedIndices[0]].nama;
+            int harga   = menu[lv.SelectedIndices[0]].harga;
             DialogIsiQty dialog = new DialogIsiQty(id, nama, harga);
             dialog.OnOke += OnOke;
             dialog.ShowDialog();
@@ -108,7 +124,20 @@ namespace SistemOrderMenuRestoran {
         }
 
         private void b_next_Click(object sender, EventArgs e) {
-            new FormCart(listOrder).ShowDialog();
+            FormCart form = new FormCart(listOrder);
+            form.onFinishOrder += OnFinishOrder;
+            form.ShowDialog();
+        }
+
+        void OnFinishOrder() {
+            if (tb_cari.Text.Length > 0) {
+                tb_cari.Text = "";
+            } else {
+                LoadAllList();
+            }
+            
+            listOrder = new List<Order>();
+            CountOrder();
         }
     }
 }

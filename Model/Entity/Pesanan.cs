@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SistemOrderMenuRestoran.Model.Entity
 {
-    class LoginRecord
+    public class Pesanan
     {
-        public string idPegawai { get; set; }
-        public string waktuLogin { get; set; }
-        public string nama { get; set; }
+        public string id { get; set; }
+        public string item { get; set; }
+        public string note { get; set; }
     }
 }

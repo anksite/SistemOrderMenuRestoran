@@ -21,5 +21,12 @@ namespace SistemOrderMenuRestoran.Controller
             }
             return result;
         }
+
+        public List<LoginRecord> RealAll() {
+            using (DbContext context = new DbContext()) {
+                repo = new LoginRecordRepository(context);
+                return repo.RealAll();
+            }
+        }
     }
 }

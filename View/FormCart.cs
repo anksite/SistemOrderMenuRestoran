@@ -1,9 +1,11 @@
-﻿using SistemOrderMenuRestoran.Controller;
+﻿using MetroFramework;
+using SistemOrderMenuRestoran.Controller;
 using SistemOrderMenuRestoran.Model.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,10 +18,14 @@ namespace SistemOrderMenuRestoran {
         TransaksiController controllerTrx;
         TransaksiItemController controllerTrxItem;
         List<Order> mListOrder;
+
+        public delegate void OnFinishOrder();
+        public event OnFinishOrder onFinishOrder;
+
         public FormCart() {
             InitializeComponent();
             InisialisasiListView();
-            controllerTrx = new TransaksiController();
+            controllerTrx = new TransaksiController(this);
             controllerTrxItem = new TransaksiItemController();
         }
 
@@ -50,6 +56,13 @@ namespace SistemOrderMenuRestoran {
 
             foreach (var order in mListOrder) {
                controllerTrxItem.Create(idTransaksi, order.idMenu, order.qty);
+            }
+
+            var response = MetroMessageBox.Show(this, "Silahkan ke kasir untuk melakukan pembayaran", "Nomor Pesanan anda "+idTransaksi , MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (""+response == "OK") {
+                onFinishOrder();
+                this.Close();
             }
         }
     }

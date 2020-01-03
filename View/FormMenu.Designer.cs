@@ -134,6 +134,7 @@
             this.lv_minum.TabIndex = 4;
             this.lv_minum.UseCompatibleStateImageBehavior = false;
             this.lv_minum.UseSelectable = true;
+            this.lv_minum.Click += new System.EventHandler(this.lv_minum_Click);
             // 
             // metroLabel4
             // 
@@ -159,6 +160,7 @@
             this.lv_lain.TabIndex = 4;
             this.lv_lain.UseCompatibleStateImageBehavior = false;
             this.lv_lain.UseSelectable = true;
+            this.lv_lain.Click += new System.EventHandler(this.lv_lain_Click);
             // 
             // metroLabel5
             // 

@@ -20,6 +20,7 @@ namespace SistemOrderMenuRestoran.View {
             InitializeComponent();
             controller = new KaryawanController();
             controllerLoginRec = new LoginRecordController();
+            tb_id.Focus();
         }
 
         private void b_menu_Click(object sender, EventArgs e) {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemOrderMenuRestoran.Controller
 {
-    class MenuController
+    public class MenuController
     {
         MenuRepository repo;
         public List<Menu> ReadMakanan(){
@@ -86,6 +86,14 @@ namespace SistemOrderMenuRestoran.Controller
             }
 
             return listMenu;
+        }
+
+        public List<LaporanOmset> ReadLaporanOmset() {
+            List<LaporanOmset> listMenu = new List<LaporanOmset>();
+            using (DbContext context = new DbContext()) {
+                repo = new MenuRepository(context);
+                return repo.ReadLaporanOmset();
+            }
         }
     }
 }

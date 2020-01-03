@@ -120,7 +120,7 @@
             this.tb_pass.SelectionStart = 0;
             this.tb_pass.ShortcutsEnabled = true;
             this.tb_pass.Size = new System.Drawing.Size(202, 23);
-            this.tb_pass.TabIndex = 1;
+            this.tb_pass.TabIndex = 2;
             this.tb_pass.UseSelectable = true;
             this.tb_pass.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tb_pass.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -131,7 +131,7 @@
             this.b_login.Location = new System.Drawing.Point(215, 98);
             this.b_login.Name = "b_login";
             this.b_login.Size = new System.Drawing.Size(117, 23);
-            this.b_login.TabIndex = 2;
+            this.b_login.TabIndex = 3;
             this.b_login.Text = "LOGIN";
             this.b_login.UseSelectable = true;
             this.b_login.Click += new System.EventHandler(this.b_login_Click);
@@ -142,7 +142,7 @@
             this.l_record.Location = new System.Drawing.Point(301, 151);
             this.l_record.Name = "l_record";
             this.l_record.Size = new System.Drawing.Size(95, 23);
-            this.l_record.TabIndex = 3;
+            this.l_record.TabIndex = 4;
             this.l_record.Text = "Login Record";
             this.l_record.UseSelectable = true;
             this.l_record.Click += new System.EventHandler(this.l_record_Click);

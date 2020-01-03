@@ -51,5 +51,42 @@ select * from menu
 
 select * from transaksi
 
-select * from transaksi_item
 
+
+select * from karyawan
+
+use db_resto
+
+select menu.*, jual.terjual ,menu.harga*jual.terjual as omset from menu
+JOIN (select ti.id_menu, SUM(ti.qty) terjual  
+from transaksi_item ti
+GROUP BY id_menu) jual ON jual.id_menu = menu.id
+
+select ti.id_transaksi, m.nama, m.harga, ti.qty, t.status
+from transaksi_item ti
+JOIN menu m ON ti.id_menu = m.id
+JOIN transaksi t ON ti.id_transaksi = t.id
+AND ti.id_transaksi = 6
+
+select lr.idPegawai, k.nama, lr.waktu 
+from login_record lr
+JOIN karyawan k ON k.id = lr.idPegawai
+ORDER BY lr.waktu DESC
+
+--DIPESAN, DIBAYAR, DIMASAK, SELESAI
+UPDATE transaksi SET status = 'DIMASAK'
+WHERE id = 6;
+
+SELECT status FROM transaksi WHERE id = 6
+
+SELECT id, item.item, note
+FROM transaksi
+JOIN (SELECT id_transaksi,SUM(qty) item
+	FROM transaksi_item 
+	GROUP BY id_transaksi) item ON item.id_transaksi = transaksi.id  
+WHERE status = 'DIBAYAR'
+
+select m.nama, ti.qty
+from transaksi_item ti
+JOIN menu m ON ti.id_menu = m.id
+AND ti.id_transaksi = 6

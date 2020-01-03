@@ -33,5 +33,33 @@ namespace SistemOrderMenuRestoran.Model.Repository {
 
             return result;
         }
+
+        public List<LoginRecord> RealAll() {
+            List<LoginRecord> listLogin = new List<LoginRecord>();
+
+            string sql = @"select lr.idPegawai, k.nama, lr.waktu 
+                            from login_record lr
+                            JOIN karyawan k ON k.id = lr.idPegawai
+                            ORDER BY lr.waktu DESC";
+
+            try {
+                using (SqlCommand cmd = new SqlCommand(sql, conn)) {
+                    using (SqlDataReader dtr = cmd.ExecuteReader()) {
+                        while (dtr.Read()) {
+                            LoginRecord login = new LoginRecord();
+                            login.idPegawai = dtr["idPegawai"].ToString();
+                            login.nama = dtr["nama"].ToString();
+                            login.waktuLogin = dtr["waktu"].ToString();
+
+                            listLogin.Add(login);
+                        }
+                    }
+                }
+            } catch (Exception ex) {
+                Debug.Print("ReadAll error: {0}", ex.Message);
+            }
+
+            return listLogin;
+        }
     }
 }

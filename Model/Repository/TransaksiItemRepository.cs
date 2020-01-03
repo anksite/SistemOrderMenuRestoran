@@ -34,5 +34,34 @@ namespace SistemOrderMenuRestoran.Model.Repository {
 
             return result;
         }
+
+        public List<TransaksiItem> ReadById(string id) {
+            List<TransaksiItem> listItem = new List<TransaksiItem>();
+
+            try {
+                string sql = @"SELECT ti.id_transaksi, m.nama, m.harga, ti.qty 
+                                FROM transaksi_item ti
+                                JOIN menu m ON ti.id_menu = m.id
+                                WHERE ti.id_transaksi = " + id;
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn)) {
+                    using (SqlDataReader dtr = cmd.ExecuteReader()) {
+                        while (dtr.Read()) {
+                            TransaksiItem item = new TransaksiItem();
+                            item.idTransaksi    = dtr["id_transaksi"].ToString();
+                            item.namaMenu       = dtr["nama"].ToString();
+                            item.harga          = Convert.ToInt32(dtr["harga"].ToString());
+                            item.qty            = Convert.ToInt32(dtr["qty"].ToString());
+
+                            listItem.Add(item);
+                        }
+                    }
+                }
+            } catch (Exception ex) {
+                System.Diagnostics.Debug.Print("ReadById error: {0}", ex.Message);
+            }
+
+            return listItem;
+        }
     }
 }
