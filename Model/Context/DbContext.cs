@@ -22,7 +22,7 @@ namespace SistemOrderMenuRestoran.Model.Context
             SqlConnection conn = null; 
             try 
             {
-                string connectionString = @"Data Source=ADNAN-PC\SQLEXPRESS;Initial Catalog=db_resto; Integrated Security=True";
+                string connectionString = @"Data Source=DESKTOP-P8B0362\SQLEXPRESS;Initial Catalog=db_resto; Integrated Security=True";
                 conn = new SqlConnection(connectionString);
                 conn.Open();
             }
